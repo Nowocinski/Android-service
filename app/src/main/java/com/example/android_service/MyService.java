@@ -6,13 +6,21 @@ import android.app.Service;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.IBinder;
+import android.util.Log;
 
 import androidx.annotation.Nullable;
 import androidx.core.app.NotificationCompat;
 
 public class MyService extends Service {
+    private final String LOG_KEY = "LOG_KEY@" + MainActivity.class.getSimpleName();
     private MediaPlayer mediaPlayer;
     private Boolean isPlay;
+
+    @Override
+    public void onCreate() {
+        super.onCreate();
+        this.isPlay = false;
+    }
 
     @Nullable
     @Override
